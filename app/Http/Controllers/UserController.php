@@ -10,8 +10,14 @@ class UserController extends Controller
     public function register($request)
     {
 
-        User::create($request);
+      $user =  User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>$request->password,
+       ]);
 
-        
+       return response()->json(['message'=>'user registered Succeccfully','user'=>$user],201);
+
+
     }
 }
