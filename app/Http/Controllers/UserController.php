@@ -66,7 +66,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-
+    public function logout()
+    {
+        auth()->logout();
+  
+        return response()->json(['message' => 'Successfully logged out']);
+    }
   
     /**
      * Refresh a token.
