@@ -1,0 +1,156 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel API Documentation",
+        "description": "Documentation for Laravel API using Swagger",
+        "contact": {
+            "email": "admin@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/enregistrer": {
+            "post": {
+                "tags": [
+                    "Utilisateurs"
+                ],
+                "summary": "Créer un nouvel utilisateur",
+                "operationId": "cb5d12aa8cb706da018ba263f90524ef",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Jean"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "jean@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "motdepasse123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Utilisateur créé avec succès"
+                    },
+                    "400": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/connexion": {
+            "post": {
+                "tags": [
+                    "Utilisateurs"
+                ],
+                "summary": "Connexion de l'utilisateur",
+                "operationId": "332d1b51abb5134bf27d772504d1c918",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "jean@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "motdepasse123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie"
+                    },
+                    "401": {
+                        "description": "Identifiants incorrects"
+                    }
+                }
+            }
+        },
+        "/api/moi": {
+            "get": {
+                "tags": [
+                    "Utilisateurs"
+                ],
+                "summary": "Obtenir les informations de l'utilisateur connecté",
+                "operationId": "e1b7994ca8e0cbe8b1c053db59d267f7",
+                "responses": {
+                    "200": {
+                        "description": "Opération réussie"
+                    }
+                }
+            }
+        },
+        "/api/deconnexion": {
+            "post": {
+                "tags": [
+                    "Utilisateurs"
+                ],
+                "summary": "Déconnexion de l'utilisateur",
+                "operationId": "c656bdaaba4aa2578100fc337d072436",
+                "responses": {
+                    "200": {
+                        "description": "Déconnexion réussie"
+                    }
+                }
+            }
+        },
+        "/api/rafraichir": {
+            "post": {
+                "tags": [
+                    "Utilisateurs"
+                ],
+                "summary": "Rafraîchir le token d'accès",
+                "operationId": "7bb6b86bfdb17fc92254b26fcfba8121",
+                "responses": {
+                    "200": {
+                        "description": "Token mis à jour avec succès"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Utilisateurs",
+            "description": "API pour gérer les utilisateurs"
+        }
+    ]
+}

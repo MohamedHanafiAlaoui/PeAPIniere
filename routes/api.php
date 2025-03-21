@@ -14,3 +14,8 @@ Route::group([
     Route::post('/refresh', [UserController::class, 'refresh'])->middleware('auth:api')->name('refresh');
     Route::post('/me', [UserController::class, 'me'])->middleware('auth:api')->name('me');
 });
+
+
+
+
+Route::get('/users', [UserController::class, 'index']);
